@@ -1,12 +1,12 @@
 const findTheOldest = function(arr) {
-  const mapped = arr.forEach(person => {
+  const mapped = arr.map(person => {
     if (!person.yearOfDeath) {
       person.yearOfDeath = 2025;
     }
+    person.age = person.yearOfDeath - person.yearOfBirth;
+    return person;
   });
-  console.log(mapped);
-  const sorted = mapped.sort((personA, personB) => (personA.yearOfDeath - personA.yearofBirth) > (personB.yearOfDeath - personB.yearOfBirth));
-  console.log(sorted);
+  const sorted = mapped.sort((personA, personB) => personB.age - personA.age);
   return sorted[0];
 
 };
