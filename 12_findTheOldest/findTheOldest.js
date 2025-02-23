@@ -6,7 +6,7 @@ const findTheOldest = function(arr) {
     person.age = person.yearOfDeath - person.yearOfBirth;
     return person;
   });
-  const sorted = mapped.sort((personA, personB) => personB.age - personA.age);
+  const sorted = mapped.sort((personA, personB) => personB.age > personA.age ? 1 : (-1));
   return sorted[0];
 
 };
